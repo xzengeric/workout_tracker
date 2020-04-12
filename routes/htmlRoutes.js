@@ -13,14 +13,4 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../public/stats.html"));
     });
 
-    app.get("/api/workouts", (req, res) => {
-        db.Workout.find({})
-            .then(workout => {
-                res.json(workout);
-            })
-            .catch(err => {
-                res.json(err);
-            });
-    });
-
 }
