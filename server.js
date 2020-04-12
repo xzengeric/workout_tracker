@@ -14,6 +14,7 @@ app.use(express.static("public"));
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://<dbuser>:<dbpassword>@ds047672.mlab.com:47672/heroku_r6glltff", { useNewUrlParser: true });
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
+
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 

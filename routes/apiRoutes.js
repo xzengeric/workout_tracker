@@ -4,7 +4,6 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-    //get last workout
     app.get("/api/workouts", (req, res) => {
         db.Workout.find({})
             .then(workout => {
@@ -15,7 +14,6 @@ module.exports = function(app) {
             });
     });
 
-    //create
 
     app.post("/api/workouts", (req, res) => {
         db.Workout.create({ type: "workout" })
@@ -24,7 +22,6 @@ module.exports = function(app) {
                 console.log(err)
             })
     });
-    //update
 
     app.put("/api/workouts/:id", (req, res) => {
         db.Workout.update({ _id: req.params.id }, { $push: { exercises: req.body } })
@@ -42,5 +39,6 @@ module.exports = function(app) {
                 res.json(err);
             });
     });
+
 
 }
